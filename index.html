@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Contact form</title>
+
+  <style>
+    @font-face {
+      font-family: 'Karla';
+      src: url('./assets/fonts/Karla-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 800;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Karla';
+      src: url('./assets/fonts/Karla-Italic-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 800;
+      font-style: italic;
+    }
+
+    body {
+      font-family: 'Karla', sans-serif;
+      font-weight: 400;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-family: 'Karla', sans-serif;
+      font-weight: 700;
+    }
+
+    label {
+      font-size: 16px;
+    }
+
+    .detail-form {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .name-box {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+
+    }
+
+    .name-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+
+
+    input[type="radio"] {
+      margin: 10px 0;
+      border: 1px solid black;
+      width: 20px;
+      box-sizing: border-box;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .query-type {
+      display: flex;
+      gap: 10px;
+    }
+
+    .query-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border: 1px solid #c0c9c0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .query-option input {
+      accent-color: #4a5c4a;
+    }
+
+    .query-option input:checked+span {
+      font-weight: bold;
+      color: #2d462d;
+    }
+
+    .query-option:has(input:checked) {
+      border-color: #4a5c4a;
+    }
+
+    .first-name,
+    .last-name {
+      flex: 1;
+    }
+
+    .form-group textarea {
+      width: 100%;
+      resize: none;
+      height: 90px;
+    }
+
+    .form-check {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .form-check input {
+      width: 15px;
+      height: 15px;
+    }
+
+    .form-group button {
+      padding: 10px 20px;
+      background-color: hsl(169, 82%, 27%);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .staric {
+      color: green;
+    }
+
+    .detail-form h1 {
+      text-align: left;
+    }
+
+    .error-message {
+      display: none;
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="" class="detail-form" id="contact-form">
+    <h2>
+      Contact Us
+    </h2>
+    <div class="name-box from-group">
+      <div class="first-name">
+        <label for="name">First Name <span class="staric">*</span></label>
+        <input type="text" id="name" name="name">
+        <p id="queryMessage" class="error-message"> This field is required
+        </p>
+      </div>
+      <div class="last-name">
+        <label for="last">Last Name <span class="staric">*</span></label>
+        <input type="text" id="last" name="last">
+        <p id="queryMessage" class="error-message"> This field is required
+        </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email <span class="staric">*</span></label>
+      <input type="email" id="email" name="email">
+      <p id="queryMessage" class="error-message"> This field is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="query-type">Query Type <span class="staric">*</span></label>
+      <div class="query-type">
+        <label class="query-option">
+          <input type="radio" name="query_type" value="general">
+          <span>General Enquiry</span>
+        </label>
+
+        <label class="query-option">
+          <input type="radio" name="query_type" value="support">
+          <span>Support Request</span>
+        </label>
+        <p id="queryMessage" class="error-message"> This field is required</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Message <span class="staric">*</span></label>
+      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+      <p id="queryMessage" class="error-message"> This field is required
+      </p>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" name="terms" id="terms">
+      <label for="terms"> I consent to being contacted by the team</label>
+    </div>
+    <p id="termsError" class="error-message"> To submit this form, please consent to being contacted
+    </p>
+    <div class="form-group">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+</body>
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    const firstName = document.getElementById("name");
+    const lastName = document.getElementById("last");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+    const queryType = document.querySelector('input[name="query_type"]:checked');
+    const terms = document.getElementById("terms");
+    const termsError = document.getElementById("termsError");
+    function showError(element, message) {
+      let errorElement = element.parentElement.querySelector(".error-message");
+      errorElement.textContent = message;
+      errorElement.style.display = "block";
+      element.style.borderColor = "red";
+    }
+
+    function hideError(element) {
+      let errorElement = element.parentElement.querySelector(".error-message");
+      errorElement.style.display = "none";
+      element.style.borderColor = "#ccc";
+    }
+
+    // Validate First Name
+    if (firstName.value.trim() === "") {
+      showError(firstName, "First name is required");
+      isValid = false;
+    } else {
+      hideError(firstName);
+    }
+
+    // Validate Last Name
+    if (lastName.value.trim() === "") {
+      showError(lastName, "Last name is required");
+      isValid = false;
+    } else {
+      hideError(lastName);
+    }
+
+    // Validate Email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+      showError(email, "Valid email is required");
+      isValid = false;
+    } else {
+      hideError(email);
+    }
+
+    if (!queryType) {
+      let queryError = document.querySelector(".query-type .error-message");
+      queryError.style.display = "block";
+      queryError.textContent = "Please select a query type";
+      isValid = false;
+    } else {
+      let queryError = document.querySelector(".query-type .error-message");
+      queryError.style.display = "none";
+    }
+
+    if (message.value.trim() === "") {
+      showError(message, "Message cannot be empty");
+      isValid = false;
+    } else {
+      hideError(message);
+    }
+    if (!terms.checked) {
+      termsError.style.display = "block";
+      isValid = false;
+    } else {
+      termsError.style.display = "none";
+    }
+
+    if (isValid) {
+      console.log("Form submitted successfully!");
+      this.submit();
+
+    }
+  });
+
+</script>
+
+</html>
